@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 body {
-  background-color: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+  @apply text-tg bg-tg_secondary;
 }

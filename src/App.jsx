@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
-const tg = window.Telegram.WebApp;
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import { useTelegram } from "./hooks";
 const App = () => {
+  const { tg, colorTheme } = useTelegram();
   useEffect(() => {
     tg.ready();
   }, []);
-  const onClose = () => {
-    tg.close();
-  };
   return (
     <>
-      <h1 className="text-3xl">App</h1>
-      <button onClick={onClose}>Закрыть</button>
+      <div className={"font-sans " + colorTheme === "dark" ? "dark" : ""}>
+        <Header />
+        <Outlet />
+      </div>
     </>
   );
 };
